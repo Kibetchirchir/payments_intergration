@@ -1,0 +1,35 @@
+{
+  "name": "payments_intergration",
+  "version": "1.0.0",
+  "description": "payments intergration with different payments channel",
+  "main": "index.ts",
+  "scripts": {
+    "build": "rm -rf dist && tsc --build",
+    "build-dev": "tsc && npm start",
+    "dev": "nodemon -e ts -w ./src -x npm run dev-start",
+    "dev-start": "ts-node ./src/index.ts",
+    "lint": "tsc --noEmit && eslint 'src/*/**/*.{js,ts,tsx}' --quiet --fix",
+    "start": "node ./dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kibetchirchir/payments_intergration.git"
+  },
+  "author": "Kibet Chirchir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kibetchirchir/payments_intergration/issues"
+  },
+  "homepage": "https://github.com/Kibetchirchir/payments_intergration#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "typescript": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.8",
+    "nodemon": "^2.0.4",
+    "ts-node": "^9.0.0",
+    "tslint": "^6.1.3"
+  }
+}
