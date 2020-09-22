@@ -1,24 +1,22 @@
-import User from "../../../../database/models/User";
 import { Request, Response } from 'express';
+import User from '../../../../database/models/User';
 
-class AuthController{
-    static async signUp(req: Request, res: Response): Promise<Response>{
+class AuthController {
+  static async signUp(req: Request, res: Response): Promise<Response> {
+    const { name, phone_number: phoneNumber } = req.body;
 
-        console.log(req.body);
-        const { name, phone_number: phoneNumber } = req.body;
+    const userData = {
+      name,
+      phone_number: phoneNumber,
+    };
 
-        const userData = {
-            name: name,
-            phone_number: phoneNumber,
-        }
+    const user = await User.create(userData);
 
-        const user = await User.create(userData);
-
-        return res.status(200).json({
-            message: 'created',
-            data: user,
-        })
-    }
+    return res.status(200).json({
+      message: 'created',
+      data: user,
+    });
+  }
 }
 
 export default AuthController;
