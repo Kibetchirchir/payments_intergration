@@ -1,9 +1,10 @@
 import dotenv from 'dotenv';
 
-dotenv.config();
-
 import { Sequelize } from 'sequelize';
+
+dotenv.config();
 const DBConfig = require('../config/config');
+
 const env = process.env.NODE_ENV || 'development';
 const config = DBConfig[env];
 
