@@ -14,6 +14,13 @@
     "plugins": [
         "@typescript-eslint"
     ],
+    "settings": {
+        "import/resolver": {
+          "node": {
+            "extensions": [".js", ".jsx", ".ts", ".tsx"]
+          }
+        }
+      },
     "rules": {
         "@typescript-eslint/no-var-requires": 0,
         "@typescript-eslint/camelcase": 0,
@@ -36,6 +43,8 @@
               "ts": "never",
               "tsx": "never"
             }
-         ]
+         ],
+         "no-unused-vars": "off",
+         "@typescript-eslint/no-unused-vars": "error"
     }
 }
