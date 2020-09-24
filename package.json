@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/Kibetchirchir/payments_intergration#readme",
   "dependencies": {
+    "axios": "^0.20.0",
+    "celebrate": "^13.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "pg": "^8.3.3",
