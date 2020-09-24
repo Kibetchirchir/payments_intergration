@@ -7,19 +7,31 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
 
-    await queryInterface.createTable('users', {
+    await queryInterface.createTable('transactions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
-        type: Sequelize.STRING,
-      },
-      phone_number: {
+      reference_id: {
         type: Sequelize.STRING,
         unique: true,
+      },
+      amount: {
+        type: Sequelize.FLOAT,
+        default: 0.0,
+      },
+      phone_number: {
+        type: Sequelize.BIGINT,
+      },
+      commission: {
+        type: Sequelize.FLOAT,
+        default: 0.0,
+      },
+      status: {
+        type: Sequelize.STRING,
+        default: 'pending',
       },
       created_at: {
         allowNull: false,
@@ -40,6 +52,6 @@ module.exports = {
      * await queryInterface.dropTable('users');
      */
 
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('transactions');
   },
 };
