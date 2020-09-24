@@ -1,5 +1,6 @@
 import { Response, Request } from 'express';
 import Transaction from '../../../../database/models/Transaction';
+import sendCallbackToClient from '../../../../helpers/sendCallBackClient';
 
 class PaymentController {
   static async initiateCashIn(req: Request, res: Response): Promise<Response> {
@@ -12,12 +13,15 @@ class PaymentController {
       amount,
       phone_number: phoneNumber,
       commission,
+      status: 'success',
     };
 
     const data = await Transaction.create(dbRec);
 
+    sendCallbackToClient(data);
+
     return res.status(201).json({
-      message: 'successfully created',
+      message: 'successfully sent the pop up to the user',
       data,
     });
   }
