@@ -7,8 +7,10 @@ const asyncHandler = (callBack: asyncHandlerI) => async (req: Request,
   try {
     await callBack(req, res, next);
   } catch (err) {
+    console.log(err);
     return res.status(500).json({
       message: 'internal server error',
+      data: err,
     });
   }
 };
