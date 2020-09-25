@@ -1,5 +1,6 @@
 import { Response, Request } from 'express';
 import Transaction from '../../../../database/models/Transaction';
+import jsonResponse from '../../../../helpers/jsonResponse';
 import sendCallbackToClient from '../../../../helpers/sendCallBackClient';
 
 class PaymentController {
@@ -33,9 +34,12 @@ class PaymentController {
 
     sendCallbackToClient(data);
 
-    return res.status(201).json({
+    return jsonResponse({
       message: 'successfully sent the pop up to the user',
-      data,
+      status: 200,
+      res,
+      data: [dbRec],
+      error: null,
     });
   }
 }
